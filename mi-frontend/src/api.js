@@ -1,7 +1,10 @@
 const BASE_URL = "http://localhost:5148/api/productos";
 
-export async function getProductos() {
-  const res = await fetch(BASE_URL);
+export async function getProductos(nombre = '') {
+  const url = nombre.trim()
+    ? `${BASE_URL}?nombre=${encodeURIComponent(nombre.trim())}`
+    : BASE_URL;
+  const res = await fetch(url);
   return res.json();
 }
 

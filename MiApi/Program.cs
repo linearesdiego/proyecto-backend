@@ -2,6 +2,7 @@ using Microsoft.EntityFrameworkCore;
 using MiApi.Data;
 using MiApi.Repositories;
 using MiApi.Services;
+using Scalar.AspNetCore;
 
 var builder = WebApplication.CreateBuilder(args);
 
@@ -23,7 +24,10 @@ builder.Services.AddCors(options =>
 var app = builder.Build();
 
 if (app.Environment.IsDevelopment())
+{
     app.MapOpenApi();
+    app.MapScalarApiReference();
+}
 
 app.UseCors();
 app.MapControllers();

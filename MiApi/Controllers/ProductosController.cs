@@ -16,8 +16,8 @@ public class ProductosController : ControllerBase
     }
 
     [HttpGet]
-    public async Task<IActionResult> GetAll() =>
-        Ok(await _service.GetAllAsync());
+    public async Task<IActionResult> GetAll([FromQuery] string? nombre = null) =>
+        Ok(await _service.GetAllAsync(nombre));
 
     [HttpGet("{id}")]
     public async Task<IActionResult> GetById(int id)

@@ -13,8 +13,13 @@ public class ProductoRepository : IProductoRepository
         _context = context;
     }
 
-    public async Task<List<Producto>> GetAllAsync() =>
-        await _context.Productos.ToListAsync();
+    public async Task<List<Producto>> GetAllAsync(string? nombre = null)
+    {
+        var query = _context.Productos.AsQueryable();
+        if (!string.IsNullOrWhiteSpace(nombre))
+            query = query.Where(p => p.Nombre.ToLower().Contains(nombre.ToLower()));
+        return await query.ToListAsync();
+    }
 
     public async Task<Producto?> GetByIdAsync(int id) =>
         await _context.Productos.FindAsync(id);

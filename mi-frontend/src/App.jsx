@@ -6,11 +6,18 @@ export default function App() {
   const [productos, setProductos] = useState([]);
   const [form, setForm] = useState({ nombre: '', precio: '' });
   const [editId, setEditId] = useState(null);
+  const [busqueda, setBusqueda] = useState('');
 
   useEffect(() => { cargar(); }, []);
 
-  async function cargar() {
-    setProductos(await getProductos());
+  async function cargar(nombre = '') {
+    setProductos(await getProductos(nombre));
+  }
+
+  function handleBusqueda(e) {
+    const v = e.target.value;
+    setBusqueda(v);
+    cargar(v);
   }
 
   function handleChange(e) {
@@ -51,7 +58,7 @@ export default function App() {
 
       <header className="header">
         <p className="header-eyebrow">Gestión de inventario</p>
-        <h1>ABM <span>Productos</span></h1>
+        <h1><span>Productos</span></h1>
         <div className="header-line" />
       </header>
 
@@ -103,6 +110,16 @@ export default function App() {
         </form>
       </div>
 
+      <div className="search-bar">
+        <input
+          type="text"
+          placeholder="Buscar por nombre..."
+          value={busqueda}
+          onChange={handleBusqueda}
+          autoComplete="off"
+        />
+      </div>
+
       <div>
         <div className="table-header">
           <span className="table-title">Listado</span>
@@ -124,7 +141,7 @@ export default function App() {
                   <td colSpan="4">
                     <div className="empty">
                       <span className="empty-icon">◻</span>
-                      <p>Sin productos cargados</p>
+                      <p>{busqueda ? `Sin resultados para "${busqueda}"` : 'Sin productos cargados'}</p>
                     </div>
                   </td>
                 </tr>

@@ -1,27 +1,33 @@
-@import url('https://fonts.googleapis.com/css2?family=Syne:wght@400;600;700;800&family=DM+Sans:wght@300;400;500&family=JetBrains+Mono:wght@400;500&display=swap');
+@import url("https://fonts.googleapis.com/css2?family=Syne:wght@400;600;700;800&family=DM+Sans:wght@300;400;500&family=JetBrains+Mono:wght@400;500&display=swap");
 
-*, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
 
 :root {
-  --bg:           #08080f;
-  --surface:      #0f0f1c;
-  --surface-2:    #14142a;
-  --border:       #1e1e36;
+  --bg: #08080f;
+  --surface: #0f0f1c;
+  --surface-2: #14142a;
+  --border: #1e1e36;
   --border-light: #2a2a48;
-  --accent:       #c9a84c;
-  --accent-dim:   rgba(201, 168, 76, 0.12);
-  --accent-glow:  rgba(201, 168, 76, 0.25);
-  --text:         #d8d8f0;
-  --text-muted:   #4a4a6a;
-  --danger:       #c24b4b;
-  --danger-dim:   rgba(194, 75, 75, 0.12);
-  --radius:       10px;
+  --accent: #c9a84c;
+  --accent-dim: rgba(201, 168, 76, 0.12);
+  --accent-glow: rgba(201, 168, 76, 0.25);
+  --text: #d8d8f0;
+  --text-muted: #4a4a6a;
+  --danger: #c24b4b;
+  --danger-dim: rgba(194, 75, 75, 0.12);
+  --radius: 10px;
 }
 
 body {
   background: var(--bg);
   color: var(--text);
-  font-family: 'DM Sans', sans-serif;
+  font-family: "DM Sans", sans-serif;
   font-weight: 400;
   min-height: 100vh;
 }
@@ -39,7 +45,7 @@ body {
 }
 
 .header-eyebrow {
-  font-family: 'JetBrains Mono', monospace;
+  font-family: "JetBrains Mono", monospace;
   font-size: 11px;
   letter-spacing: 0.18em;
   text-transform: uppercase;
@@ -48,7 +54,7 @@ body {
 }
 
 .header h1 {
-  font-family: 'Syne', sans-serif;
+  font-family: "Syne", sans-serif;
   font-size: clamp(28px, 5vw, 42px);
   font-weight: 800;
   color: #eeeeff;
@@ -57,7 +63,7 @@ body {
 }
 
 .header h1 span {
-  color: var(--accent);
+  color: white;
 }
 
 .header-line {
@@ -83,7 +89,7 @@ body {
 }
 
 .form-title {
-  font-family: 'Syne', sans-serif;
+  font-family: "Syne", sans-serif;
   font-size: 13px;
   font-weight: 600;
   letter-spacing: 0.08em;
@@ -105,7 +111,9 @@ body {
   flex: 1;
 }
 
-.field.field-small { flex: 0 0 140px; }
+.field.field-small {
+  flex: 0 0 140px;
+}
 
 .field label {
   font-size: 11px;
@@ -120,14 +128,18 @@ body {
   border: 1px solid var(--border);
   border-radius: 6px;
   padding: 10px 14px;
-  font-family: 'DM Sans', sans-serif;
+  font-family: "DM Sans", sans-serif;
   font-size: 14px;
   color: var(--text);
   outline: none;
-  transition: border-color 0.2s, box-shadow 0.2s;
+  transition:
+    border-color 0.2s,
+    box-shadow 0.2s;
 }
 
-.field input::placeholder { color: var(--text-muted); }
+.field input::placeholder {
+  color: var(--text-muted);
+}
 
 .field input:focus {
   border-color: var(--accent);
@@ -141,16 +153,21 @@ body {
   gap: 6px;
   border: none;
   border-radius: 6px;
-  font-family: 'DM Sans', sans-serif;
+  font-family: "DM Sans", sans-serif;
   font-size: 13px;
   font-weight: 500;
   cursor: pointer;
-  transition: opacity 0.15s, transform 0.15s, box-shadow 0.2s;
+  transition:
+    opacity 0.15s,
+    transform 0.15s,
+    box-shadow 0.2s;
   white-space: nowrap;
   padding: 10px 18px;
 }
 
-.btn:active { transform: scale(0.97); }
+.btn:active {
+  transform: scale(0.97);
+}
 
 .btn-primary {
   background: var(--accent);
@@ -206,6 +223,35 @@ body {
   padding-top: 2px;
 }
 
+/* ── Search bar ── */
+.search-bar {
+  margin-bottom: 20px;
+}
+
+.search-bar input {
+  width: 100%;
+  background: var(--surface);
+  border: 1px solid var(--border);
+  border-radius: var(--radius);
+  padding: 11px 16px;
+  font-family: "DM Sans", sans-serif;
+  font-size: 14px;
+  color: var(--text);
+  outline: none;
+  transition:
+    border-color 0.2s,
+    box-shadow 0.2s;
+}
+
+.search-bar input::placeholder {
+  color: var(--text-muted);
+}
+
+.search-bar input:focus {
+  border-color: var(--accent);
+  box-shadow: 0 0 0 3px var(--accent-dim);
+}
+
 /* ── Table section ── */
 .table-header {
   display: flex;
@@ -215,7 +261,7 @@ body {
 }
 
 .table-title {
-  font-family: 'Syne', sans-serif;
+  font-family: "Syne", sans-serif;
   font-size: 13px;
   font-weight: 600;
   letter-spacing: 0.08em;
@@ -224,7 +270,7 @@ body {
 }
 
 .table-count {
-  font-family: 'JetBrains Mono', monospace;
+  font-family: "JetBrains Mono", monospace;
   font-size: 11px;
   background: var(--surface-2);
   border: 1px solid var(--border);
@@ -252,7 +298,7 @@ thead tr {
 thead th {
   padding: 12px 16px;
   text-align: left;
-  font-family: 'JetBrains Mono', monospace;
+  font-family: "JetBrains Mono", monospace;
   font-size: 10px;
   font-weight: 500;
   letter-spacing: 0.12em;
@@ -260,16 +306,22 @@ thead th {
   color: var(--text-muted);
 }
 
-thead th:last-child { text-align: right; }
+thead th:last-child {
+  text-align: right;
+}
 
 tbody tr {
   border-bottom: 1px solid var(--border);
   transition: background 0.15s;
 }
 
-tbody tr:last-child { border-bottom: none; }
+tbody tr:last-child {
+  border-bottom: none;
+}
 
-tbody tr:hover { background: var(--surface-2); }
+tbody tr:hover {
+  background: var(--surface-2);
+}
 
 tbody td {
   padding: 14px 16px;
@@ -279,16 +331,18 @@ tbody td {
 }
 
 .td-id {
-  font-family: 'JetBrains Mono', monospace;
+  font-family: "JetBrains Mono", monospace;
   font-size: 12px;
   color: var(--text-muted);
   width: 48px;
 }
 
-.td-nombre { font-weight: 500; }
+.td-nombre {
+  font-weight: 500;
+}
 
 .td-precio {
-  font-family: 'JetBrains Mono', monospace;
+  font-family: "JetBrains Mono", monospace;
   font-size: 13px;
   color: #a0d4a0;
 }
@@ -320,7 +374,7 @@ tbody td {
 
 .empty p {
   font-size: 13px;
-  font-family: 'JetBrains Mono', monospace;
+  font-family: "JetBrains Mono", monospace;
 }
 
 /* ── Editing indicator ── */
@@ -328,7 +382,7 @@ tbody td {
   display: inline-flex;
   align-items: center;
   gap: 6px;
-  font-family: 'JetBrains Mono', monospace;
+  font-family: "JetBrains Mono", monospace;
   font-size: 10px;
   letter-spacing: 0.1em;
   text-transform: uppercase;
@@ -342,7 +396,13 @@ tbody td {
 }
 
 @media (max-width: 580px) {
-  .form-row { flex-direction: column; }
-  .field.field-small { flex: 1 1 auto; }
-  .form-actions { flex-wrap: wrap; }
+  .form-row {
+    flex-direction: column;
+  }
+  .field.field-small {
+    flex: 1 1 auto;
+  }
+  .form-actions {
+    flex-wrap: wrap;
+  }
 }

@@ -12,7 +12,7 @@ public class ProductoService : IProductoService
         _repository = repository;
     }
 
-    public Task<List<Producto>> GetAllAsync() => _repository.GetAllAsync();
+    public Task<List<Producto>> GetAllAsync(string? nombre = null) => _repository.GetAllAsync(nombre);
 
     public Task<Producto?> GetByIdAsync(int id) => _repository.GetByIdAsync(id);
 
